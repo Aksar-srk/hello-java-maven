@@ -149,7 +149,7 @@ This is the core CI step where Maven compiles and packages the application.
 | **Build Step Type** | **Invoke top-level Maven targets** |
 | **Maven Version** | `Maven3` | (Select the Maven tool name configured in Section 1) |
 | **Goals** | `clean package` | Compiles the code and creates the `.jar` file. |
-![CI/CD Architecture Diagram](images/j1.png)
+![CI/CD Architecture Diagram](images/j-1.png)
 ![CI/CD Architecture Diagram](images/j.png)
 
 - Running the Application Manually
