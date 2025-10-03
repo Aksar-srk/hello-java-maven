@@ -1,4 +1,6 @@
-# HelloWorld Java Maven App with Jenkins  on EC2
+
+
+# HelloWorld Java Maven App with Jenkins on EC2
 
 This project demonstrates building and deploying a simple Java **HelloWorld** Maven application on an **Ubuntu EC2 instance** using **Jenkins**.  
 
@@ -12,21 +14,18 @@ It covers:
 ---
 
 ## **Project Structure**
+```HelloWorldProject/
+├── pom.xml
+└── src/
+   └── main/
+      └── java/
+        └── com/
+          └── example/
+             └── HelloWorld.java
+```
 
-### HelloWorld Java Maven App with Jenkins CI/CD on EC2
+![CI/CD Architecture Diagram](images/vs.png)
 
-This project demonstrates building and deploying a simple Java **HelloWorld** Maven application on an **Ubuntu EC2 instance** using **Jenkins**.  
-
-It covers:
-
-- Installing Java, Maven, Jenkins on EC2
-- Configuring Jenkins with JDK and Maven
-- Creating a Jenkins Freestyle job to build the Maven project
-- Running the application JAR on EC2 automatically after each build
-
----
-
-## **Project Structure**
 
 ## EC2 Setup
 - Launch Ubuntu EC2
@@ -34,6 +33,7 @@ It covers:
   SSH → 22 → Your IP
   HTTP → 80 → Optional
   Jenkins → 8080 → Anywhere (0.0.0.0/0)
+  ![CI/CD Architecture Diagram](images/ec2.png)
 ## Connect via SSH
 - Update Ubuntu & Install Java and Maven
  ```bash
@@ -93,11 +93,6 @@ sudo systemctl status jenkins
 # 10. Retrieve the initial admin password from the server
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
-# 🚀 Jenkins CI/CD Setup Guide: Java Maven Project
-
-This guide outlines the configuration steps within Jenkins to build a simple Java Maven project using a Freestyle job.
-
----
 
 ## 1. Global Tool Configuration (Manage Jenkins)
 
@@ -154,6 +149,8 @@ This is the core CI step where Maven compiles and packages the application.
 | **Build Step Type** | **Invoke top-level Maven targets** |
 | **Maven Version** | `Maven3` | (Select the Maven tool name configured in Section 1) |
 | **Goals** | `clean package` | Compiles the code and creates the `.jar` file. |
+![CI/CD Architecture Diagram](images/j1.png)
+![CI/CD Architecture Diagram](images/j.png)
 
 - Running the Application Manually
 ```bash
@@ -162,3 +159,4 @@ java -jar hello-java-maven-1.0-SNAPSHOT.jar
 ```
 |Output:|
 |Hello, World from Maven build!|
+![CI/CD Architecture Diagram](images/output.png)
